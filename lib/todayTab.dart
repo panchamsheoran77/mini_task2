@@ -62,17 +62,18 @@ class todayTab extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                    Container(
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0x80333333)
                       ),
-                      color: Color(0xff80333333),
-                      margin: EdgeInsets.only(left: 200),
+                      margin: EdgeInsets.only(left: 150),
                       child: ImageIcon(
                         AssetImage("images/dots.png"),
-                        size: 15,
+                        size: 25,
+                        color: Colors.white,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

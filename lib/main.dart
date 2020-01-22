@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mini_task2/bottomNavBar.dart';
 import 'package:mini_task2/systemInfoBar.dart';
 import 'package:mini_task2/todayTab.dart';
-
-import 'headingBar.dart';
+import 'package:mini_task2/headingBar.dart';
 
 void main() => runApp(app());
 
 class app extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    int index = 0;
     // TODO: implement build
     SystemChrome.setEnabledSystemUIOverlays([]);
     return MaterialApp(
@@ -76,6 +77,13 @@ class app extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+                bottomNavigationBar:bottomNavBar(
+                  icn1Function: (){},
+                  icn2Function: (){},
+                  icn3Function: (){},
+                  icn4Function: (){},
+                  icn5Function: (){},
                 ),
               ),
             ),
