@@ -60,8 +60,7 @@ flutter:
   fonts:
     - family: Muli
       fonts:
-        - asset: fonts/Muli-Black.ttf
-
+        - asset: fonts/Muli-Bold.ttf
     - family: Icons
       fonts:
         - asset: fonts/CustomIcons.ttf

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mini_task2/Core/values.dart';
+import 'package:mini_task2/CreateEvent/createEvent.dart';
+import 'package:mini_task2/editEvent/editEvent.dart';
 
 class bottomNavBar extends StatelessWidget{
   Function _icn1,_icn2,_icn3,_icn4,_icn5;
@@ -28,13 +31,13 @@ class bottomNavBar extends StatelessWidget{
               color: Colors.transparent,
               child: ImageIcon(
               AssetImage("images/wifi.png"),
-              size: 27,
-              color: Colors.grey,
+              size: values.bottomNavIconSize,
+              color: values.bottoNavIconColor,
             ),
           ),
           ),
           Positioned(
-            left: 60,
+            left: 65,
             bottom:5 ,
             child: RaisedButton(
               onPressed: _icn2,
@@ -42,27 +45,30 @@ class bottomNavBar extends StatelessWidget{
               color: Colors.transparent,
               child: ImageIcon(
                 AssetImage("images/share.png"),
-                size: 27,
-                color: Colors.grey,
+                size: values.bottomNavIconSize,
+                color: values.bottoNavIconColor,
               ),
             ),
           ),
           Positioned(
-            left: 140,
-            bottom: 10,
-            child: new FloatingActionButton(
-
-//                        notchMargin: 24.0,
+            left: 147,
+            right: 150,
+            bottom: 15,
+            child: FloatingActionButton(
               backgroundColor: Colors.red,
-              onPressed: _icn3,
+              elevation: 0,
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>createEvent()));
+              },
               child: ImageIcon(
                 AssetImage("images/circle_add.png"),
-                size: 27,
+                size: values.bottomNavIconSize+3,
+
               ),
             ),
           ),
           Positioned(
-            left: 200,
+            right: 65,
             bottom:5 ,
             child: RaisedButton(
               onPressed: _icn4,
@@ -70,22 +76,22 @@ class bottomNavBar extends StatelessWidget{
               color: Colors.transparent,
               child: ImageIcon(
                 AssetImage("images/calc_add.png"),
-                size: 27,
-                color: Colors.grey,
+                size: values.bottomNavIconSize,
+                color: values.bottoNavIconColor,
               ),
             ),
           ),
           Positioned(
-            left: 270,
+            right: 0,
             bottom:5 ,
             child: RaisedButton(
-              onPressed: _icn5,
+              onPressed: (){},
               elevation: 0,
               color: Colors.transparent,
               child: ImageIcon(
                 AssetImage("images/group_icon.png"),
-                size: 27,
-                color: Colors.grey,
+                size: values.bottomNavIconSize,
+                color: values.bottoNavIconColor,
               ),
             ),
           ),

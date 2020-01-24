@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mini_task2/Core/values.dart';
 
 class headingBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 50,
-      child: Container(
+    return Container(
         color: Color(0xffffffff),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(left: 10,bottom: 7),
@@ -17,28 +17,28 @@ class headingBar extends StatelessWidget {
                 "Event",
                 style: TextStyle(
                   color: Color(0xff555555),
-                  fontSize: 48,
-                  fontFamily: "Muli",
+                  fontSize: values.headingSize,
+                  fontWeight: FontWeight.bold
                 ),
               ),
                 ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 7, left: 100),
+              margin: EdgeInsets.only(bottom: 7),
               child: RaisedButton(
                 child: Text(
                   "Create",
                   style: TextStyle(
-                    color: Color(0xfff01b01),
-                    fontSize: 18,
-                    fontFamily: "Muli",
+                    color: values.headingButtonColor,
+                    fontSize: values.headingButtonSize,
+                    fontFamily:values.headingFontFamily,
                   ),
                 ),
-                color: Color(0xffffffff),
+                color:values.headingButtonBackColor,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(values.headingButtonCornerRadius),
                   side: BorderSide(
-                    color: Color(0xfff01b01),
+                    color: values.headingButtonBorderColor,
                     width: 1.0,
                   ),
                 ),
@@ -47,7 +47,6 @@ class headingBar extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
