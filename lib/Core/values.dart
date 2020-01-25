@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class  values {
   //heading variables
@@ -49,4 +50,30 @@ class  values {
   static double textAreaHeight=100;
   static Color textHintColor = Colors.grey;
   static double hintFontSize = 14;
+
+
+  //eventDetails.dart pancham
+    static Color statusBackColor = Color(0xfff01b01);
+    static double statusCornerRadius = 30;
+    static double dateContainerRadius = 3;
+    static Color dateTextColor = Colors.white;
+    static double eventHeadingFontSize = 18;
+    static Color eventHeadingFontColor = Colors.black;
+    static Color eventCreaterNameColor = Colors.black;
+    static Color eventCreaterDesignationColor = Colors.grey;
+    static double eventCreaterNameFontSize = 15;
+    static double dateIconSize = 5;
+    static Color postCommentButtonColor = Color(0xfff01b01);
+    static Color viewMoreTextColor = Colors.black;
+    static Color getDirectionsTextColor = Color(0xff05b316);
+    static Color dateDirectionIconBackColor = Colors.black;
+    static Color likeCommentColor = Color(0xff333333);
+    static Color commentCardBack = Color(0xfff7f7f7);
+    static String CommentimageIcon = "images/chat.png";
+    static IconData likeImageIcon = FontAwesomeIcons.heart;
+    static String navIcon = "images/navigation.png";
+    static String dateIcon = "images/event.png";
+    static String avatarPic = "images/avatar.png";
+    static Color CommentthreeDotColor= Colors.grey;
+
 }
