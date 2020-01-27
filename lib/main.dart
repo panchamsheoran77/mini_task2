@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mini_task2/Core/bottomNavBar.dart';
 import 'package:mini_task2/Core/values.dart';
+import 'package:mini_task2/HamburgerMenu/hamburgerMenu.dart';
 import 'package:mini_task2/todayTab.dart';
 import 'package:mini_task2/Core/headingBar.dart';
 
@@ -11,7 +11,6 @@ class app extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    SystemChrome.setEnabledSystemUIOverlays([]);
     return MaterialApp(
       home: DefaultTabController(
         length: 3,
@@ -31,6 +30,7 @@ class app extends StatelessWidget {
           ),
           backgroundColor: values.mainBackColor,
           appBar: AppBar(
+            iconTheme: IconThemeData(color: Colors.black),
             title: headingBar(),
             elevation: 0,
             backgroundColor: values.mainBackColor,
@@ -49,7 +49,6 @@ class app extends StatelessWidget {
                   bottom: 4,
                 ),
               ),
-
               tabs: <Widget>[
                 Container(
                   width: 60,
@@ -90,6 +89,8 @@ class app extends StatelessWidget {
               ],
             ),
           ),
+          drawer: hamburgerMenu(),
+
           bottomNavigationBar: bottomNavBar(
             icn1Function: () {},
             icn2Function: () {},

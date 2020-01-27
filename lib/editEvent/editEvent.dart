@@ -11,9 +11,9 @@ class editEvent extends StatelessWidget {
           title: Text(
             "Edit Event",
             style: TextStyle(
-              fontFamily: "Muli",
-              fontSize: 27,
-              color: Colors.black,
+              fontFamily: values.screenHeadingFontFamily,
+              fontSize: values.screenHeadingSize,
+              color: values.ScreenHeadingColor,
             ),
           ),
           elevation: 0,
@@ -80,6 +80,7 @@ class editEvent extends StatelessWidget {
                                     const Radius.circular(30.0),
                                   ),
                                 ),
+
                                 hintStyle: new TextStyle(
                                   color: values.textHintColor,
                                   fontSize: values.hintFontSize,
@@ -248,14 +249,14 @@ class editEvent extends StatelessWidget {
                     child: ImageIcon(
                       AssetImage("images/circle_add.png"),
                       size: 25,
-                      color: Colors.red,
+                      color: values.inviteMemberColor,
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 10, left: 5),
                     child: Text(
                       "Invite member",
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(color: values.inviteMemberColor,),
                     ),
                   ),
                 ],
@@ -293,16 +294,16 @@ class editEvent extends StatelessWidget {
                       child: Text(
                         "Save",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: values.saveButtonFontColor,
                           fontSize: 18,
                           fontFamily: "Muli",
                         ),
                       ),
-                      color: Colors.black,
+                      color: values.saveButtonBAckColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                         side: BorderSide(
-                          color: Colors.black,
+                          color: values.saveButtonBAckColor,
                           width: 1.0,
                         ),
                       ),

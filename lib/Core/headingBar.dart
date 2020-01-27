@@ -10,7 +10,7 @@ class headingBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(left: 10,bottom: 7),
+              margin: EdgeInsets.only(left: 0,bottom: 10,top: 10),
                 child: Material(
                   color: Color(0xffffffff),
                   child:  Text(

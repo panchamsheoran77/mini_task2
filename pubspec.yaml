@@ -62,6 +62,7 @@ flutter:
       fonts:
         - asset: fonts/Muli-Black.ttf
         - asset: fonts/Muli-Bold.ttf
+          weight: 700
     - family: Icons
       fonts:
         - asset: fonts/CustomIcons.ttf

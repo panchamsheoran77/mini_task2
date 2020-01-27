@@ -579,6 +579,7 @@ class eventDetails extends StatelessWidget {
             ],
           ),
         ),
+        backgroundColor: values.eventdetailbackgroundColor,
       ),
     );
   }

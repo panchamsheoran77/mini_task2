@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_task2/Core/values.dart';
 import 'package:mini_task2/CreateEvent/createEvent.dart';
-import 'package:mini_task2/EventDetails/eventDetails.dart';
-import 'package:mini_task2/editEvent/editEvent.dart';
-
 class bottomNavBar extends StatelessWidget{
   Function _icn1,_icn2,_icn3,_icn4,_icn5;
 
@@ -59,7 +56,7 @@ class bottomNavBar extends StatelessWidget{
               backgroundColor: Colors.red,
               elevation: 0,
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>eventDetails()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>createEvent()));
               },
               child: ImageIcon(
                 AssetImage("images/circle_add.png"),
