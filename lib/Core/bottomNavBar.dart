@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_task2/Core/values.dart';
 import 'package:mini_task2/CreateEvent/createEvent.dart';
+import 'package:mini_task2/EventDetails/eventDetails.dart';
 class bottomNavBar extends StatelessWidget{
   Function _icn1,_icn2,_icn3,_icn4,_icn5;
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mini_task2/Core/values.dart';
 
 class eventDetails extends StatelessWidget {
@@ -62,13 +61,20 @@ class eventDetails extends StatelessWidget {
                           Container(
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: values.threeDotBackColor,
                             ),
-                            margin: EdgeInsets.only(left: 180),
-                            child: ImageIcon(
-                              AssetImage("images/dots.png"),
-                              size: values.threeDotSize,
-                              color: values.threeDotsColor,
+                            margin: EdgeInsets.only(left: 140),
+                            child: FloatingActionButton(
+                              elevation: 0,
+                              onPressed: () {
+                                _settingModalBottomSheet(context);
+                              },
+                              mini: true,
+                              backgroundColor: values.threeDotBackColor,
+                              child: ImageIcon(
+                                AssetImage("images/dots.png"),
+                                size: values.threeDotSize,
+                                color: values.threeDotsColor,
+                              ),
                             ),
                           ),
                         ],
@@ -115,11 +121,10 @@ class eventDetails extends StatelessWidget {
                 child: Text(
                   "2019 Holiday 4's Beach Volleyball Tournament",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: values.eventHeadingFontSize,
-                    color: values.eventHeadingFontColor,
-                    wordSpacing: 2.5
-                  ),
+                      fontWeight: FontWeight.bold,
+                      fontSize: values.eventHeadingFontSize,
+                      color: values.eventHeadingFontColor,
+                      wordSpacing: 2.5),
                 ),
               ),
               Container(
@@ -237,18 +242,17 @@ class eventDetails extends StatelessWidget {
                     margin: EdgeInsets.only(left: 10, top: 10),
                     child: Text(
                       "Dallas Market Center, Dallas, USA",
-                      style: TextStyle(
-                      ),
+                      style: TextStyle(),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 10,left: 5),
-                    child: Text("Get Directions",
-                    style: TextStyle(
-                      color: values.getDirectionsTextColor,
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.w600
-                    ),
+                    margin: EdgeInsets.only(top: 10, left: 5),
+                    child: Text(
+                      "Get Directions",
+                      style: TextStyle(
+                          color: values.getDirectionsTextColor,
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.w600),
                     ),
                   )
                 ],
@@ -256,7 +260,8 @@ class eventDetails extends StatelessWidget {
               Card(
                 elevation: 0,
                 color: values.commentCardBack,
-                margin: EdgeInsets.only(left:10,right: 10,top: 30,bottom: 10),
+                margin:
+                    EdgeInsets.only(left: 10, right: 10, top: 30, bottom: 10),
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -302,11 +307,25 @@ class eventDetails extends StatelessWidget {
                               ],
                             ),
                           ),
-                          ImageIcon(
-                            AssetImage("images/dots.png"),
-                            color: values.CommentthreeDotColor,
-                            size: 20,
-                          )
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            margin: EdgeInsets.only(left: 140),
+                            child: FloatingActionButton(
+                              elevation: 0,
+                              onPressed: () {
+                                _settingModalBottomSheet(context);
+                              },
+                              mini: true,
+                              backgroundColor: values.threeDotBackColor,
+                              child: ImageIcon(
+                                AssetImage("images/dots.png"),
+                                size: values.threeDotSize,
+                                color: values.threeDotsColor,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -397,11 +416,25 @@ class eventDetails extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              ImageIcon(
-                                AssetImage("images/dots.png"),
-                                color: values.CommentthreeDotColor,
-                                size: 20,
-                              )
+                              Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                margin: EdgeInsets.only(left: 140),
+                                child: FloatingActionButton(
+                                  elevation: 0,
+                                  onPressed: () {
+                                    _settingModalBottomSheet(context);
+                                  },
+                                  mini: true,
+                                  backgroundColor: values.threeDotBackColor,
+                                  child: ImageIcon(
+                                    AssetImage("images/dots.png"),
+                                    size: values.threeDotSize,
+                                    color: values.threeDotsColor,
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -430,9 +463,7 @@ class eventDetails extends StatelessWidget {
                                   child: Text(
                                     "Like",
                                     style: TextStyle(
-                                      color:values.likeCommentColor
-                                    ),
-
+                                        color: values.likeCommentColor),
                                   ),
                                 ),
                               ),
@@ -448,11 +479,11 @@ class eventDetails extends StatelessWidget {
                                 bottom: 8,
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
-                                  child: Text("Comment",
-                                  style: TextStyle(
-                                      color:values.likeCommentColor,
-                                      fontSize:15
-                                  ),
+                                  child: Text(
+                                    "Comment",
+                                    style: TextStyle(
+                                        color: values.likeCommentColor,
+                                        fontSize: 15),
                                   ),
                                 ),
                               ),
@@ -510,11 +541,25 @@ class eventDetails extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                ImageIcon(
-                                  AssetImage("images/dots.png"),
-                                  color:values.CommentthreeDotColor,
-                                  size: 20,
-                                )
+                                Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  margin: EdgeInsets.only(left: 140),
+                                  child: FloatingActionButton(
+                                    elevation: 0,
+                                    onPressed: () {
+                                      _settingModalBottomSheet(context);
+                                    },
+                                    mini: true,
+                                    backgroundColor: values.threeDotBackColor,
+                                    child: ImageIcon(
+                                      AssetImage("images/dots.png"),
+                                      size: values.threeDotSize,
+                                      color: values.threeDotsColor,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -540,11 +585,11 @@ class eventDetails extends StatelessWidget {
                                   left: 90,
                                   bottom: 10,
                                   child: Container(
-                                    child: Text("Like",
-                                    style: TextStyle(
-                                    color: values.likeCommentColor,
-
-                                    ),
+                                    child: Text(
+                                      "Like",
+                                      style: TextStyle(
+                                        color: values.likeCommentColor,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -560,7 +605,8 @@ class eventDetails extends StatelessWidget {
                                   bottom: 10,
                                   child: Container(
                                     margin: EdgeInsets.only(right: 20),
-                                    child: Text("Comment",
+                                    child: Text(
+                                      "Comment",
                                       style: TextStyle(
                                         color: values.likeCommentColor,
                                       ),
@@ -582,5 +628,27 @@ class eventDetails extends StatelessWidget {
         backgroundColor: values.eventdetailbackgroundColor,
       ),
     );
+  }
+
+  void _settingModalBottomSheet(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+            child: new Wrap(
+              children: <Widget>[
+                new ListTile(
+                    leading: new Icon(Icons.edit),
+                    title: new Text('Edit'),
+                    onTap: () {}),
+                new ListTile(
+                  leading: new Icon(Icons.delete),
+                  title: new Text('Delete'),
+                  onTap: () => {},
+                ),
+              ],
+            ),
+          );
+        });
   }
 }

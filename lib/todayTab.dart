@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mini_task2/Core/values.dart';
-import 'package:mini_task2/EventDetails/eventDetails.dart';
 
-class todayTab extends StatelessWidget {
+import 'editEvent/editEvent.dart';
+
+class todayTab extends StatefulWidget {
   List eventList = new List();
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new _todaysTab();
+  }
+}
 
-
+class _todaysTab extends State<todayTab>{
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -26,7 +33,7 @@ class todayTab extends StatelessWidget {
                     children: <Widget>[
                       ClipRRect(
                         borderRadius:
-                            BorderRadius.circular(values.tabCardRadius),
+                        BorderRadius.circular(values.tabCardRadius),
                         child: Image.asset(
                           "images/pic.jpg",
                           fit: BoxFit.fitWidth,
@@ -55,7 +62,7 @@ class todayTab extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: values.postStatusBackColor,
                             border:
-                                Border.all(color: values.postStatusBackColor),
+                            Border.all(color: values.postStatusBackColor),
                             borderRadius: BorderRadius.circular(
                                 values.postStatusCornerRadius)),
                         margin: EdgeInsets.only(left: 20, top: 10),
@@ -91,7 +98,7 @@ class todayTab extends StatelessWidget {
                         child: FloatingActionButton(
                           elevation: 0,
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> eventDetails() ));
+                            _settingModalBottomSheet(context);
                           },
                           mini: true,
                           backgroundColor: values.threeDotBackColor,
@@ -111,6 +118,34 @@ class todayTab extends StatelessWidget {
         );
       },
       itemCount: 2,
+    );
+  }
+
+  void _settingModalBottomSheet(context){
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc){
+          return Container(
+            child: new Wrap(
+              children: <Widget>[
+                new ListTile(
+                    leading: new Icon(Icons.edit),
+                    title: new Text('Edit'),
+                    onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>editEvent()));
+                }
+                ),
+                new ListTile(
+                  leading: new Icon(Icons.delete),
+                  title: new Text('Delete'),
+                  onTap: () => {
+
+                  },
+                ),
+              ],
+            ),
+          );
+        }
     );
   }
 }

@@ -34,63 +34,66 @@ class app extends StatelessWidget {
             title: headingBar(),
             elevation: 0,
             backgroundColor: values.mainBackColor,
-            bottom: TabBar(
-              isScrollable: true,
-              labelColor: values.tabLabelColor,
-              labelPadding: EdgeInsets.only(left: 0, right: 0),
-              indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(
-                  width: 2,
-                  color: values.tabIndicatorColor,
-                ),
-                insets: EdgeInsets.only(
-                  left: 0,
-                  right: 8,
-                  bottom: 4,
-                ),
-              ),
-              tabs: <Widget>[
-                Container(
-                  width: 60,
-                  child: Tab(
-                    child: Text(
-                      "Today's",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontFamily: "Muli",
+            bottom: PreferredSize(
+                preferredSize: Size.fromHeight(70),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    margin: EdgeInsets.only(left: 30),
+//                    width: MediaQuery.of(context).size.width / 1.5,
+                    child: TabBar(
+                      isScrollable: true,
+                      labelColor: values.tabLabelColor,
+                      labelPadding: EdgeInsets.only(left: 0, right: 0),
+                      indicator: UnderlineTabIndicator(
+                        borderSide: BorderSide(
+                          width: 2,
+                          color: values.tabIndicatorColor,
+                        ),
                       ),
+                      tabs: <Widget>[
+                        Container(
+                          width: 60,
+                          child: Tab(
+                            child: Text(
+                              "Today's",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontFamily: "Muli",
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 80,
+                          child: Tab(
+                            child: Text(
+                              "Upcoming",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: "Muli",
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 60,
+                          child: Tab(
+                            child: Text(
+                              "Past",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontFamily: "Muli",
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
-                Container(
-                  width: 80,
-                  child: Tab(
-                    child: Text(
-                      "Upcoming",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: "Muli",
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 60,
-                  child: Tab(
-                    child: Text(
-                      "Past",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontFamily: "Muli",
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+                )),
           ),
           drawer: hamburgerMenu(),
-
           bottomNavigationBar: bottomNavBar(
             icn1Function: () {},
             icn2Function: () {},

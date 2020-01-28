@@ -36,7 +36,7 @@ class values {
   static String postStatusFontFamily = "Muli";
   static Color threeDotBackColor = Color(0x80333333);
   static double threeDotSize = 25;
-  static Color threeDotsColor = Colors.white;
+  static Color threeDotsColor = Color(0xFFe1e1e1);
   static double postHeight = 240;
   static double postWidth = 370;
   static double postImageHeight = 150;
