@@ -1,323 +1,213 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mini_task2/Core/roundButtonWidget.dart';
+import 'package:mini_task2/Core/roundTextFieldWidget.dart';
 import 'package:mini_task2/Core/values.dart';
 
 class editEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Edit Event",
-            style: TextStyle(
-              fontFamily: values.screenHeadingFontFamily,
-              fontSize: values.screenHeadingSize,
-              color: values.ScreenHeadingColor,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Edit Event",
+          style: TextStyle(
+            fontFamily: values.screenHeadingFontFamily,
+            fontSize: values.screenHeadingSize,
+            color: values.ScreenHeadingColor,
           ),
-          elevation: 0,
-          backgroundColor: values.mainBackColor,
         ),
+        elevation: 0,
         backgroundColor: values.mainBackColor,
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Image(
-                  image: AssetImage("images/drive.png"),
-                  width: values.imageWidth,
-                  height: values.imageHeigth,
-                  color: Colors.grey),
-              Container(
-                margin: EdgeInsets.only(left: 20, top: 10),
-                width: double.maxFinite,
-                child: Text(
-                  "Event Name",
-                  textAlign: TextAlign.left,
-                ),
+      ),
+      backgroundColor: values.mainBackColor,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Image(
+                image: AssetImage("images/drive.png"),
+                width: values.imageWidth,
+                height: values.imageHeigth,
+                color: values.grey),
+            Container(
+              margin: EdgeInsets.only(left: 20, top: 10),
+              width: double.maxFinite,
+              child: Text(
+                "Event Name",
+                textAlign: TextAlign.left,
               ),
-              Container(
-                height: values.textFieldHeight,
-                margin: EdgeInsets.all(10),
-                child: TextField(
-                  decoration: new InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
+            ),
+            Container(
+              height: values.textFieldHeight,
+              margin: EdgeInsets.all(10),
+              child: roundTextFieldWidget("Ex. pratice of vollyball",1),
+            ),
+            Row(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(left: 20, top: 10),
+                      width: values.dateTextFieldWidth,
+                      child: Text(
+                        "From",
+                        textAlign: TextAlign.left,
                       ),
                     ),
-
-                    hintStyle: new TextStyle(
-                      color: values.textHintColor,
-                      fontSize: values.hintFontSize,
-                    ),
-                    hintText: "Ex. pratice of vollyball",
-                  ),
-                ),
-              ),
-              Row(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(left: 20, top: 10),
-                        width: 150,
-                        child: Text(
-                          "From",
-                          textAlign: TextAlign.left,
+                    Stack(
+                      children: <Widget>[
+                        Container(
+                          width: values.dateTextFieldWidth+10,
+                          height: values.textFieldHeight,
+                          margin: EdgeInsets.all(10),
+                          child: roundTextFieldWidget("DD/MM/YY",1),
                         ),
-                      ),
-                      Stack(
-                        children: <Widget>[
-                          Container(
-                            width: 160,
-                            height: values.textFieldHeight,
-                            margin: EdgeInsets.all(10),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: new OutlineInputBorder(
-                                  borderRadius: const BorderRadius.all(
-                                    const Radius.circular(30.0),
-                                  ),
-                                ),
-
-                                hintStyle: new TextStyle(
-                                  color: values.textHintColor,
-                                  fontSize: values.hintFontSize,
-                                ),
-                                hintText: "DD/MM/YY",
-                              ),
+                        Positioned(
+                          bottom: 11,
+                          right: -10,
+                          child: RaisedButton(
+                            elevation: 0,
+                            color: Colors.transparent,
+                            child: ImageIcon(
+                              AssetImage("images/date_cal.png"),
+                              size: values.labelIconSize,
+                              color: values.grey,
                             ),
+                            onPressed: () {},
                           ),
-                          Positioned(
-                            bottom: 11,
-                            right: -10,
-                            child: RaisedButton(
-                              elevation: 0,
-                              color: Colors.transparent,
-                              child: ImageIcon(
-                                AssetImage("images/date_cal.png"),
-                                size: 25,
-                                color: Colors.grey,
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(left: 20, top: 10),
-                        width: 160,
-                        child: Text(
-                          "To",
-                          textAlign: TextAlign.left,
-
                         ),
+                      ],
+                    ),
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(left: 20, top: 10),
+                      width: values.dateTextFieldWidth+10,
+                      child: Text(
+                        "To",
+                        textAlign: TextAlign.left,
                       ),
-                      Stack(
-                        children: <Widget>[
-                          Container(
-                            width: 150,
-                            height: values.textFieldHeight,
-                            margin: EdgeInsets.all(10),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: new OutlineInputBorder(
-                                  borderRadius: const BorderRadius.all(
-                                    const Radius.circular(30.0),
-                                  ),
-                                ),
-
-                                hintStyle: new TextStyle(
-                                  color: values.textHintColor,
-                                  fontSize: values.hintFontSize,
-                                ),
-                                hintText: "DD/MM/YY",
-                              ),
+                    ),
+                    Stack(
+                      children: <Widget>[
+                        Container(
+                          width: values.dateTextFieldWidth,
+                          height: values.textFieldHeight,
+                          margin: EdgeInsets.all(10),
+                          child: roundTextFieldWidget("DD/MM/YY",1),
+                        ),
+                        Positioned(
+                          bottom: 11,
+                          right: -10,
+                          child: RaisedButton(
+                            elevation: 0,
+                            color: Colors.transparent,
+                            child: ImageIcon(
+                              AssetImage("images/date_cal.png"),
+                              size: values.labelIconSize,
+                              color: values.grey,
                             ),
+                            onPressed: () {},
                           ),
-                          Positioned(
-                            bottom: 11,
-                            right: -10,
-                            child: RaisedButton(
-                              elevation: 0,
-                              color: Colors.transparent,
-                              child: ImageIcon(
-                                AssetImage("images/date_cal.png"),
-                                size: 25,
-                                color: Colors.grey,
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 20, top: 10),
-                width: double.maxFinite,
-                child: Text(
-                  "Location",
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Container(
-                height: values.textFieldHeight,
-                margin: EdgeInsets.all(10),
-                child: TextField(
-                  decoration: new InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
-                      ),
+                        ),
+                      ],
                     ),
-
-                    hintStyle: new TextStyle(
-                      color: values.textHintColor,
-                      fontSize: values.hintFontSize,
-                    ),
-                    hintText: "Ex. Canada",
-                  ),
+                  ],
                 ),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20, top: 10),
+              width: double.maxFinite,
+              child: Text(
+                "Location",
+                textAlign: TextAlign.left,
               ),
-              Container(
-                margin: EdgeInsets.only(left: 20, top: 10),
-                width: double.maxFinite,
-                child: Text(
-                  "Event Type",
-                  textAlign: TextAlign.left,
-                ),
+            ),
+            Container(
+              height: values.textFieldHeight,
+              margin: EdgeInsets.all(10),
+              child: roundTextFieldWidget("Ex. Canada",1),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20, top: 10),
+              width: double.maxFinite,
+              child: Text(
+                "Event Type",
+                textAlign: TextAlign.left,
               ),
-              Container(
-                height: values.textFieldHeight,
-                margin: EdgeInsets.all(10),
-                child: TextField(
-                  decoration: new InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
-                      ),
-                    ),
-
-                    hintStyle: new TextStyle(
-                      color: values.textHintColor,
-                      fontSize: values.hintFontSize,
-                    ),
-                    hintText: "Ex. Pratice, Physical training, tournament",
-                  ),
-                ),
+            ),
+            Container(
+              height: values.textFieldHeight,
+              margin: EdgeInsets.all(10),
+              child: roundTextFieldWidget(
+                  "Ex. Pratice, Physical training, tournament",1),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20, top: 10),
+              width: double.maxFinite,
+              child: Text(
+                "Description",
+                textAlign: TextAlign.left,
               ),
-              Container(
-                margin: EdgeInsets.only(left: 20, top: 10),
-                width: double.maxFinite,
-                child: Text(
-                  "Description",
-                  textAlign: TextAlign.left,
-                ),
-              ),
-              Container(
+            ),
+            Container(
                 height: values.textAreaHeight,
                 margin: EdgeInsets.all(10),
-                child: TextField(
-                  maxLines: 50,
-                  decoration: new InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
-                      ),
-                    ),
-
-                    hintStyle: new TextStyle(
-                      color: values.textHintColor,
-                      fontSize: values.hintFontSize,
-                    ),
-                    hintText: "Add Description",
+                child: roundTextFieldWidget("Add Description", 50)
+            ),
+            Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: 10, left: 20),
+                  child: ImageIcon(
+                    AssetImage("images/circle_add.png"),
+                    size: values.labelIconSize,
+                    color: values.inviteMemberColor,
                   ),
                 ),
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: 10, left: 20),
-                    child: ImageIcon(
-                      AssetImage("images/circle_add.png"),
-                      size: 25,
+                Container(
+                  margin: EdgeInsets.only(top: 10, left: 5),
+                  child: Text(
+                    "Invite member",
+                    style: TextStyle(
                       color: values.inviteMemberColor,
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10, left: 5),
-                    child: Text(
-                      "Invite member",
-                      style: TextStyle(color: values.inviteMemberColor,),
-                    ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  height: values.buttonHeight,
+                  margin: EdgeInsets.only(top: 20, right: 10, bottom: 10),
+                  child: roundButtonWidget(
+                    "Cancel",
+                    values.white,
+                    values.grey,
+                    values.grey,
+                        () {},
                   ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Container(
-                    height: 40,
+                ),
+                Container(
+                    height: values.buttonHeight,
                     margin: EdgeInsets.only(top: 20, right: 10, bottom: 10),
-                    child: RaisedButton(
-                      child: Text(
-                        "Cancel",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18,
-                          fontFamily: "Muli",
-                        ),
-                      ),
-                      color: Color(0xffffffff),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        side: BorderSide(
-                          color: Colors.grey,
-                          width: 1.0,
-                        ),
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                  Container(
-                    height: 40,
-                    margin: EdgeInsets.only(top: 20, right: 10, bottom: 10),
-                    child: RaisedButton(
-                      child: Text(
-                        "Save",
-                        style: TextStyle(
-                          color: values.saveButtonFontColor,
-                          fontSize: 18,
-                          fontFamily: "Muli",
-                        ),
-                      ),
-                      color: values.saveButtonBAckColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        side: BorderSide(
-                          color: values.saveButtonBAckColor,
-                          width: 1.0,
-                        ),
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
+                    child: roundButtonWidget(
+                      "Save",
+                      values.saveButtonBAckColor,
+                      values.saveButtonBAckColor,
+                      values.saveButtonFontColor,
+                          () {},
+                    )),
+              ],
+            )
+          ],
         ),
       ),
     );
   }
-
-
 }

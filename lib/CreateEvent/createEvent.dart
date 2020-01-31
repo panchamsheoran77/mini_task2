@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mini_task2/Core/roundButtonWidget.dart';
+import 'package:mini_task2/Core/roundTextFieldWidget.dart';
 import 'package:mini_task2/Core/values.dart';
 
 class createEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text(
             "Create Event",
             style: TextStyle(
-                fontFamily: values.screenHeadingFontFamily,
-                fontSize: values.screenHeadingSize,
-                color: values.ScreenHeadingColor,
+              fontFamily: values.screenHeadingFontFamily,
+              fontSize: values.screenHeadingSize,
+              color: values.ScreenHeadingColor,
             ),
           ),
           elevation: 0,
@@ -27,7 +28,7 @@ class createEvent extends StatelessWidget {
                   image: AssetImage("images/drive.png"),
                   width: values.imageWidth,
                   height: values.imageHeigth,
-                  color: Colors.grey),
+                  color: values.grey),
               Container(
                 margin: EdgeInsets.only(left: 20, top: 10),
                 width: double.maxFinite,
@@ -39,21 +40,7 @@ class createEvent extends StatelessWidget {
               Container(
                 height: values.textFieldHeight,
                 margin: EdgeInsets.all(10),
-                child: TextField(
-                  decoration: new InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
-                      ),
-                    ),
-
-                    hintStyle: new TextStyle(
-                      color: values.textHintColor,
-                      fontSize: values.hintFontSize,
-                    ),
-                    hintText: "Ex. pratice of vollyball",
-                  ),
-                ),
+                child: roundTextFieldWidget("Ex. pratice of vollyball",1),
               ),
               Row(
                 children: <Widget>[
@@ -61,7 +48,7 @@ class createEvent extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.only(left: 20, top: 10),
-                        width: 150,
+                        width: values.dateTextFieldWidth,
                         child: Text(
                           "From",
                           textAlign: TextAlign.left,
@@ -70,24 +57,10 @@ class createEvent extends StatelessWidget {
                       Stack(
                         children: <Widget>[
                           Container(
-                            width: 160,
+                            width: values.dateTextFieldWidth+10,
                             height: values.textFieldHeight,
                             margin: EdgeInsets.all(10),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: new OutlineInputBorder(
-                                  borderRadius: const BorderRadius.all(
-                                    const Radius.circular(30.0),
-                                  ),
-                                ),
-
-                                hintStyle: new TextStyle(
-                                  color: values.textHintColor,
-                                  fontSize: values.hintFontSize,
-                                ),
-                                hintText: "DD/MM/YY",
-                              ),
-                            ),
+                            child: roundTextFieldWidget("DD/MM/YY",1),
                           ),
                           Positioned(
                             bottom: 11,
@@ -97,8 +70,8 @@ class createEvent extends StatelessWidget {
                               color: Colors.transparent,
                               child: ImageIcon(
                                 AssetImage("images/date_cal.png"),
-                                size: 25,
-                                color: Colors.grey,
+                                size: values.labelIconSize,
+                                color: values.grey,
                               ),
                               onPressed: () {},
                             ),
@@ -111,34 +84,19 @@ class createEvent extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.only(left: 20, top: 10),
-                        width: 160,
+                        width: values.dateTextFieldWidth+10,
                         child: Text(
                           "To",
                           textAlign: TextAlign.left,
-
                         ),
                       ),
                       Stack(
                         children: <Widget>[
                           Container(
-                            width: 150,
+                            width: values.dateTextFieldWidth,
                             height: values.textFieldHeight,
                             margin: EdgeInsets.all(10),
-                            child: TextField(
-                              decoration: new InputDecoration(
-                                border: new OutlineInputBorder(
-                                  borderRadius: const BorderRadius.all(
-                                    const Radius.circular(30.0),
-                                  ),
-                                ),
-
-                                hintStyle: new TextStyle(
-                                  color: values.textHintColor,
-                                  fontSize: values.hintFontSize,
-                                ),
-                                hintText: "DD/MM/YY",
-                              ),
-                            ),
+                            child: roundTextFieldWidget("DD/MM/YY",1),
                           ),
                           Positioned(
                             bottom: 11,
@@ -148,8 +106,8 @@ class createEvent extends StatelessWidget {
                               color: Colors.transparent,
                               child: ImageIcon(
                                 AssetImage("images/date_cal.png"),
-                                size: 25,
-                                color: Colors.grey,
+                                size: values.labelIconSize,
+                                color: values.grey,
                               ),
                               onPressed: () {},
                             ),
@@ -171,21 +129,7 @@ class createEvent extends StatelessWidget {
               Container(
                 height: values.textFieldHeight,
                 margin: EdgeInsets.all(10),
-                child: TextField(
-                  decoration: new InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
-                      ),
-                    ),
-
-                    hintStyle: new TextStyle(
-                      color: values.textHintColor,
-                      fontSize: values.hintFontSize,
-                    ),
-                    hintText: "Ex. Canada",
-                  ),
-                ),
+                child: roundTextFieldWidget("Ex. Canada",1),
               ),
               Container(
                 margin: EdgeInsets.only(left: 20, top: 10),
@@ -198,21 +142,8 @@ class createEvent extends StatelessWidget {
               Container(
                 height: values.textFieldHeight,
                 margin: EdgeInsets.all(10),
-                child: TextField(
-                  decoration: new InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
-                      ),
-                    ),
-
-                    hintStyle: new TextStyle(
-                      color: values.textHintColor,
-                      fontSize: values.hintFontSize,
-                    ),
-                    hintText: "Ex. Pratice, Physical training, tournament",
-                  ),
-                ),
+                child: roundTextFieldWidget(
+                    "Ex. Pratice, Physical training, tournament",1),
               ),
               Container(
                 margin: EdgeInsets.only(left: 20, top: 10),
@@ -225,22 +156,7 @@ class createEvent extends StatelessWidget {
               Container(
                 height: values.textAreaHeight,
                 margin: EdgeInsets.all(10),
-                child: TextField(
-                  maxLines: 50,
-                  decoration: new InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(30.0),
-                      ),
-                    ),
-
-                    hintStyle: new TextStyle(
-                      color: values.textHintColor,
-                      fontSize: values.hintFontSize,
-                    ),
-                    hintText: "Add Description",
-                  ),
-                ),
+                child: roundTextFieldWidget("Add Description", 50)
               ),
               Row(
                 children: <Widget>[
@@ -248,7 +164,7 @@ class createEvent extends StatelessWidget {
                     margin: EdgeInsets.only(top: 10, left: 20),
                     child: ImageIcon(
                       AssetImage("images/circle_add.png"),
-                      size: 25,
+                      size: values.labelIconSize,
                       color: values.inviteMemberColor,
                     ),
                   ),
@@ -256,7 +172,9 @@ class createEvent extends StatelessWidget {
                     margin: EdgeInsets.only(top: 10, left: 5),
                     child: Text(
                       "Invite member",
-                      style: TextStyle(color: values.inviteMemberColor,),
+                      style: TextStyle(
+                        color: values.inviteMemberColor,
+                      ),
                     ),
                   ),
                 ],
@@ -265,57 +183,31 @@ class createEvent extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Container(
-                    height: 40,
+                    height: values.buttonHeight,
                     margin: EdgeInsets.only(top: 20, right: 10, bottom: 10),
-                    child: RaisedButton(
-                      child: Text(
-                        "Cancel",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18,
-                          fontFamily: "Muli",
-                        ),
-                      ),
-                      color: Color(0xffffffff),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        side: BorderSide(
-                          color: Colors.grey,
-                          width: 1.0,
-                        ),
-                      ),
-                      onPressed: () {},
+                    child: roundButtonWidget(
+                      "Cancel",
+                      values.white,
+                      values.grey,
+                      values.grey,
+                      () {},
                     ),
                   ),
                   Container(
-                    height: 40,
-                    margin: EdgeInsets.only(top: 20, right: 10, bottom: 10),
-                    child: RaisedButton(
-                      child: Text(
+                      height: values.buttonHeight,
+                      margin: EdgeInsets.only(top: 20, right: 10, bottom: 10),
+                      child: roundButtonWidget(
                         "Save",
-                        style: TextStyle(
-                          color: values.saveButtonFontColor,
-                          fontSize: 18,
-                          fontFamily: "Muli",
-                        ),
-                      ),
-                      color: values.saveButtonBAckColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        side: BorderSide(
-                          color: values.saveButtonBAckColor,
-                          width: 1.0,
-                        ),
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
+                        values.saveButtonBAckColor,
+                        values.saveButtonBAckColor,
+                        values.saveButtonFontColor,
+                        () {},
+                      )),
                 ],
               )
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

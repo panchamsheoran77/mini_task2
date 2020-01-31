@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:mini_task2/Core/commentWidget.dart';
+import 'package:mini_task2/Core/status.dart';
+import 'package:mini_task2/Core/threeDotWidget.dart';
+import 'package:mini_task2/Core/userInfoBar.dart';
 import 'package:mini_task2/Core/values.dart';
 
 class eventDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return MaterialApp(
-      home: Scaffold(
+    return  Scaffold(
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -19,63 +21,20 @@ class eventDetails extends StatelessWidget {
                     Image.asset(
                       "images/eventPic.jpg",
                     ),
-                    Positioned(
-                      top: 10,
+                    Container(
+                      margin: EdgeInsets.all(10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Container(
-                            height: 30,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                color: values.statusBackColor,
-                                border:
-                                    Border.all(color: values.statusBackColor),
-                                borderRadius: BorderRadius.circular(
-                                    values.statusCornerRadius)),
-                            margin: EdgeInsets.only(left: 10, top: 10),
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  child: ImageIcon(
-                                    AssetImage("images/cancel.png"),
-                                    size: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 10),
-                                  child: Text(
-                                    "Not Attending",
-                                    style: TextStyle(
-                                      color: values.postStatusTextColor,
-                                      fontSize: values.postStatusTextSize,
-                                      fontFamily: values.postStatusFontFamily,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                          status(
+                            "images/cancel.png",
+                            "Not Attending",
+                            values.statusBackColor,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            margin: EdgeInsets.only(left: 140),
-                            child: FloatingActionButton(
-                              elevation: 0,
-                              onPressed: () {
-                                _settingModalBottomSheet(context);
-                              },
-                              mini: true,
-                              backgroundColor: values.threeDotBackColor,
-                              child: ImageIcon(
-                                AssetImage("images/dots.png"),
-                                size: values.threeDotSize,
-                                color: values.threeDotsColor,
-                              ),
-                            ),
+                          threeDotWidget(
+                            values.black,
+                            values.threeDotsColor,
+                            values.threeDotSize,
                           ),
                         ],
                       ),
@@ -92,7 +51,11 @@ class eventDetails extends StatelessWidget {
                           BorderRadius.circular(values.dateContainerRadius),
                       child: Container(
                         padding: EdgeInsets.only(
-                            top: 10, left: 2, bottom: 5, right: 3),
+                          top: 10,
+                          left: 2,
+                          bottom: 5,
+                          right: 3,
+                        ),
                         width: 65,
                         height: 65,
                         color: values.statusBackColor,
@@ -127,50 +90,12 @@ class eventDetails extends StatelessWidget {
                       wordSpacing: 2.5),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(left: 10, top: 10),
-                child: Row(
-                  children: <Widget>[
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Image.asset(
-                        values.avatarPic,
-                        width: 50,
-                        height: 50,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 10),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            width: 250,
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Dan Walker (Host)",
-                              style: TextStyle(
-                                color: values.eventCreaterNameColor,
-                                fontSize: values.eventCreaterNameFontSize,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: 250,
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Coach, Consulant(University of Calgary)",
-                              style: TextStyle(
-                                color: values.eventCreaterDesignationColor,
-                                fontSize: values.eventCreaterNameFontSize - 2,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              userInfoBar(
+                  "Dan Walker (Host)",
+                  "Coach,Consulant(University of Calgary)",
+                  values.avatarPic,
+                  250,
+                  values.eventCreaterNameFontSize),
               Container(
                 margin: EdgeInsets.only(left: 10, right: 10, bottom: 20),
                 child: Stack(
@@ -266,64 +191,21 @@ class eventDetails extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       margin: EdgeInsets.all(10),
-                      child: Row(
+                      child: Stack(
                         children: <Widget>[
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Image.asset(
+                          userInfoBar(
+                              "Me",
+                              "Coach,Consultant(University of Calgary)",
                               values.avatarPic,
-                              width: 50,
-                              height: 50,
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 10),
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  width: 230,
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    "Me",
-                                    style: TextStyle(
-                                      color: values.eventCreaterNameColor,
-                                      fontSize: values.eventCreaterNameFontSize,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 230,
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    "Coach, Consulant(University of Calgary)",
-                                    style: TextStyle(
-                                      color:
-                                          values.eventCreaterDesignationColor,
-                                      fontSize:
-                                          values.eventCreaterNameFontSize - 2,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            margin: EdgeInsets.only(left: 140),
-                            child: FloatingActionButton(
-                              elevation: 0,
-                              onPressed: () {
-                                _settingModalBottomSheet(context);
-                              },
-                              mini: true,
-                              backgroundColor: values.threeDotBackColor,
-                              child: ImageIcon(
-                                AssetImage("images/dots.png"),
-                                size: values.threeDotSize,
-                                color: values.threeDotsColor,
-                              ),
+                              250,
+                              values.eventCreaterNameFontSize),
+                          Positioned(
+                            right: -8,
+                            bottom: 5,
+                            child: threeDotWidget(
+                              values.commentCardBack,
+                              values.CommentthreeDotColor,
+                              values.threeDotSize,
                             ),
                           ),
                         ],
@@ -369,254 +251,29 @@ class eventDetails extends StatelessWidget {
                         style: TextStyle(fontSize: 15, color: Colors.black),
                       ),
                     ),
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.all(10),
-                          child: Row(
-                            children: <Widget>[
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(30),
-                                child: Image.asset(
-                                  values.avatarPic,
-                                  width: 50,
-                                  height: 50,
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 10),
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                      width: 230,
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Me",
-                                        style: TextStyle(
-                                          color: values.eventCreaterNameColor,
-                                          fontSize:
-                                              values.eventCreaterNameFontSize,
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: 230,
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Coach, Consulant(University of Calgary)",
-                                        style: TextStyle(
-                                          color: values
-                                              .eventCreaterDesignationColor,
-                                          fontSize:
-                                              values.eventCreaterNameFontSize -
-                                                  2,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                margin: EdgeInsets.only(left: 140),
-                                child: FloatingActionButton(
-                                  elevation: 0,
-                                  onPressed: () {
-                                    _settingModalBottomSheet(context);
-                                  },
-                                  mini: true,
-                                  backgroundColor: values.threeDotBackColor,
-                                  child: ImageIcon(
-                                    AssetImage("images/dots.png"),
-                                    size: values.threeDotSize,
-                                    color: values.threeDotsColor,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: Text("Lorem Ipsum is simply dummy "
-                              "text of the printing and typesetting industry. "),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10),
-                          height: 30,
-                          width: double.infinity,
-                          child: Stack(
-                            children: <Widget>[
-                              Positioned(
-                                left: 60,
-                                child: Icon(
-                                  values.likeImageIcon,
-                                  color: values.likeCommentColor,
-                                ),
-                              ),
-                              Positioned(
-                                left: 90,
-                                bottom: 10,
-                                child: Container(
-                                  child: Text(
-                                    "Like",
-                                    style: TextStyle(
-                                        color: values.likeCommentColor),
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                left: 160,
-                                child: ImageIcon(
-                                  AssetImage(values.CommentimageIcon),
-                                  color: values.likeCommentColor,
-                                ),
-                              ),
-                              Positioned(
-                                left: 190,
-                                bottom: 8,
-                                child: Container(
-                                  margin: EdgeInsets.only(right: 20),
-                                  child: Text(
-                                    "Comment",
-                                    style: TextStyle(
-                                        color: values.likeCommentColor,
-                                        fontSize: 15),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                    commentWidget(
+                      userInfoBar(
+                        "Me",
+                        "Coach, Consultant(University of Calgary)",
+                        values.avatarPic,
+                        values.userInfoBarWidth,
+                        values.eventCreaterNameFontSize,
+                      ),
+                      "Lorem Ipsum is simply dummy "
+                      "text of the printing and typesetting industry. ",
                     ),
                     Container(
                       margin: EdgeInsets.only(left: 40),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            child: Row(
-                              children: <Widget>[
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
-                                  child: Image.asset(
-                                    values.avatarPic,
-                                    width: 50,
-                                    height: 50,
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 10),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Container(
-                                        width: 200,
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Me",
-                                          style: TextStyle(
-                                            color: values.eventCreaterNameColor,
-                                            fontSize:
-                                                values.eventCreaterNameFontSize,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 200,
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Coach (University of Calgary)",
-                                          style: TextStyle(
-                                            color: values
-                                                .eventCreaterDesignationColor,
-                                            fontSize: values
-                                                    .eventCreaterNameFontSize -
-                                                3,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  margin: EdgeInsets.only(left: 140),
-                                  child: FloatingActionButton(
-                                    elevation: 0,
-                                    onPressed: () {
-                                      _settingModalBottomSheet(context);
-                                    },
-                                    mini: true,
-                                    backgroundColor: values.threeDotBackColor,
-                                    child: ImageIcon(
-                                      AssetImage("images/dots.png"),
-                                      size: values.threeDotSize,
-                                      color: values.threeDotsColor,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 10, right: 10),
-                            child: Text("Lorem Ipsum is simply dummy "
-                                "text of the printing and typesetting industry. "),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 10),
-                            height: 30,
-                            width: double.infinity,
-                            child: Stack(
-                              children: <Widget>[
-                                Positioned(
-                                  left: 60,
-                                  child: Icon(
-                                    values.likeImageIcon,
-                                    color: values.likeCommentColor,
-                                  ),
-                                ),
-                                Positioned(
-                                  left: 90,
-                                  bottom: 10,
-                                  child: Container(
-                                    child: Text(
-                                      "Like",
-                                      style: TextStyle(
-                                        color: values.likeCommentColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  left: 160,
-                                  child: ImageIcon(
-                                    AssetImage(values.CommentimageIcon),
-                                    color: values.likeCommentColor,
-                                  ),
-                                ),
-                                Positioned(
-                                  left: 190,
-                                  bottom: 10,
-                                  child: Container(
-                                    margin: EdgeInsets.only(right: 20),
-                                    child: Text(
-                                      "Comment",
-                                      style: TextStyle(
-                                        color: values.likeCommentColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                      child: commentWidget(
+                        userInfoBar(
+                          "Me",
+                          "Coach,(University of Calgary)",
+                          values.avatarPic,
+                          values.userInfoBarWidth - 40,
+                          values.eventCreaterNameFontSize,
+                        ),
+                        "Lorem Ipsum is simply dummy "
+                        "text of the printing and typesetting industry.",
                       ),
                     ),
                   ],
@@ -626,29 +283,6 @@ class eventDetails extends StatelessWidget {
           ),
         ),
         backgroundColor: values.eventdetailbackgroundColor,
-      ),
-    );
-  }
-
-  void _settingModalBottomSheet(context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc) {
-          return Container(
-            child: new Wrap(
-              children: <Widget>[
-                new ListTile(
-                    leading: new Icon(Icons.edit),
-                    title: new Text('Edit'),
-                    onTap: () {}),
-                new ListTile(
-                  leading: new Icon(Icons.delete),
-                  title: new Text('Delete'),
-                  onTap: () => {},
-                ),
-              ],
-            ),
-          );
-        });
+      );
   }
 }

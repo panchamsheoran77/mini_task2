@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mini_task2/Core/threeDotWidget.dart';
 import 'package:mini_task2/Core/values.dart';
-
-import 'editEvent/editEvent.dart';
+import 'Core/status.dart';
 
 class todayTab extends StatefulWidget {
   List eventList = new List();
+
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new _todaysTab();
   }
 }
 
-class _todaysTab extends State<todayTab>{
+class _todaysTab extends State<todayTab> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -33,7 +33,7 @@ class _todaysTab extends State<todayTab>{
                     children: <Widget>[
                       ClipRRect(
                         borderRadius:
-                        BorderRadius.circular(values.tabCardRadius),
+                            BorderRadius.circular(values.tabCardRadius),
                         child: Image.asset(
                           "images/pic.jpg",
                           fit: BoxFit.fitWidth,
@@ -53,60 +53,32 @@ class _todaysTab extends State<todayTab>{
                   ),
                 ),
                 Positioned(
+                  width: values.postImageWidth - 25,
                   top: 10,
                   child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
-                        height: 30,
-                        width: 120,
                         decoration: BoxDecoration(
                             color: values.postStatusBackColor,
                             border:
-                            Border.all(color: values.postStatusBackColor),
+                                Border.all(color: values.postStatusBackColor),
                             borderRadius: BorderRadius.circular(
                                 values.postStatusCornerRadius)),
                         margin: EdgeInsets.only(left: 20, top: 10),
-                        child: Row(
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(left: 5),
-                              child: ImageIcon(
-                                AssetImage("images/cancel.png"),
-                                size: 15,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 10),
-                              child: Text(
-                                "Not Attending",
-                                style: TextStyle(
-                                  color: values.postStatusTextColor,
-                                  fontSize: values.postStatusTextSize,
-                                  fontFamily: values.postStatusFontFamily,
-                                ),
-                              ),
-                            ),
-                          ],
+                        child: status(
+                          "images/cancel.png",
+                          "Not Attending",
+                          values.postStatusBackColor,
                         ),
                       ),
                       Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
-                        margin: EdgeInsets.only(left: 140),
-                        child: FloatingActionButton(
-                          elevation: 0,
-                          onPressed: () {
-                            _settingModalBottomSheet(context);
-                          },
-                          mini: true,
-                          backgroundColor: values.threeDotBackColor,
-                          child: ImageIcon(
-                            AssetImage("images/dots.png"),
-                            size: values.threeDotSize,
-                            color: values.threeDotsColor,
-                          ),
+                        alignment: Alignment.centerRight,
+                        child: threeDotWidget(
+                          values.threeDotBackColor,
+                          values.threeDotsColor,
+                          values.threeDotSize+5,
                         ),
                       ),
                     ],
@@ -118,34 +90,6 @@ class _todaysTab extends State<todayTab>{
         );
       },
       itemCount: 2,
-    );
-  }
-
-  void _settingModalBottomSheet(context){
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc){
-          return Container(
-            child: new Wrap(
-              children: <Widget>[
-                new ListTile(
-                    leading: new Icon(Icons.edit),
-                    title: new Text('Edit'),
-                    onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>editEvent()));
-                }
-                ),
-                new ListTile(
-                  leading: new Icon(Icons.delete),
-                  title: new Text('Delete'),
-                  onTap: () => {
-
-                  },
-                ),
-              ],
-            ),
-          );
-        }
     );
   }
 }
